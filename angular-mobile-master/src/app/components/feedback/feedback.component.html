@@ -1,0 +1,32 @@
+<div class="viewer-box">
+  <a href="javascript:;" class="btn-close" (click)="onClose()"></a>
+  <div class="message layout" *ngIf="truingList[this.currentIndex].truings[this.currentVersion].remark">
+    {{truingList[this.currentIndex].truings[this.currentVersion].remark}}
+  </div>
+  <div class="drop-box">
+    <div class="drop-items" *ngIf="isShowDrop">
+      <a href="javascript:;"
+         *ngFor="let truing of truingList[currentIndex].truings; let i = index"
+         (click)="onSelectVersion(i)"
+         class="drop-item">查看V{{i+1}}版本</a>
+    </div>
+    <a href="javascript:;" (click)="onToggleDrop($event)" class="drop-display">查看V{{currentVersion+1}}版本<span class="icon-dropdown"></span></a>
+  </div>
+  <div class="viewer-content" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)" (touchmove)="onTouchMove($event)">
+      <img class="viewer-big-image" (load)="loadImage(truingList[currentIndex].truings[currentVersion].imgKey.replace('-300','-800'))"
+           src="{{imageUrl}}"/>
+  </div>
+  <div class="footer" *ngIf="cusTruingStatus!==2&&cusTruingStatus!==3">
+    <div class="footer-inner layout">
+    <div class="feedback-area">
+      <textarea class="textarea" [(ngModel)]="message"  placeholder="请填写修改意见，或者满意并确认"></textarea>
+    </div>
+    <div class="feedback-toolbar clearfix">
+        <a href="javascript:;" (click)="onRemark()" class="btn-submit" [class.active]="message">提交建议</a>
+        <a href="javascript:;" (click)="onAccept()" [class.active]="truingList[currentIndex].status != 2" class="btn-accept">很满意</a>
+      </div>
+    </div>
+  </div>
+</div>
+<span *ngIf="isLoadingImage" class="loading-text"></span>
+<a href="javascript:;" id="render" class="render" (click)="render($event)">dom</a>

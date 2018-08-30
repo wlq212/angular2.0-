@@ -1,0 +1,45 @@
+<div class="viewer-box">
+  <a href="javascript:;" *ngIf="currentIndex !== 0" class="btn-page btn-prev" (click)="onPrev($event)"></a>
+  <a href="javascript:;" *ngIf="currentIndex !== truingList.length-1" class="btn-page btn-next" (click)="onNext($event)"></a>
+  <div class="viewer-content">
+    <a href="javascript:;" class="btn-close" (click)="onClose()"></a>
+    <img class="viewer-big-image" (load)="loadImage(truingList[currentIndex].truings[currentVersion].imgKey.replace('-300','-800'))"
+         src="{{truingList[currentIndex].truings[currentVersion].imgKey.replace('-300','-800')}}"/>
+
+    <div class="footer">
+      <div class="footer-inner">
+        <div class="feedback-area" *ngIf="currentVersion===truingList[currentIndex].truings.length -1 &&  cusTruingStatus!==2&&cusTruingStatus!==3">
+          <textarea class="textarea" [(ngModel)]="message" placeholder="请填写修改意见，或者满意并确认"></textarea>
+        </div>
+        <div class="feedback-toolbar clearfix">
+          <a href="javascript:;"
+             *ngIf="currentVersion===truingList[currentIndex].truings.length -1 &&  cusTruingStatus!==2&&cusTruingStatus!==3"
+             (click)="onAccept()"
+             [class.active]="truingList[currentIndex].truings[currentVersion].status != 2"
+             class="btn-accept">很满意</a>
+
+          <a href="javascript:;"
+             *ngIf="currentVersion===truingList[currentIndex].truings.length -1 &&  cusTruingStatus!==2&&cusTruingStatus!==3"
+             (click)="onRemark()"
+             class="btn-submit"
+             [class.active]="message">提交修改建议</a>
+
+          <div class="drop-box">
+            <div class="drop-items" *ngIf="isShowDrop">
+              <a href="javascript:;"
+                 *ngFor="let truing of truingList[currentIndex].truings; let i = index"
+                 (click)="onSelectVersion(i)"
+                 class="drop-item">查看V{{i+1}}版本</a>
+            </div>
+            <a href="javascript:;" (click)="onToggleDrop()" class="drop-display">查看V{{currentVersion+1}}版本</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="main-mask self-mask" *ngIf="isLoadingImage">
+  <span class="loading-text"></span>
+</div>

@@ -1,0 +1,199 @@
+<!--<a class="back"href="#/orders" style="color: #59ac94;"><i class="icon-back"></i></a>-->
+<div *ngIf="isShowPcGuide && rawInfo.cusRawStatus !==-1 && rawInfo.cusRawStatus !==2" class="pc-guide pc-layout">
+  本订单标配可选片{{rawInfo.truingImgNum}}张,第一步建议您先粗选{{rawInfo.truingImgNum*2}}张左右,然后进行细选 <a href="javascript:;" (click)="onClosePcTip()" class="btn-close-guide">我知道了</a>
+</div>
+
+<scene-form
+            [show]="currentStatus=='' && rawInfo.cusRawStatus!==2 && rawInfo.cusRawStatus !==-1 && rawInfo.cusRawStatus !== 0" [photoInfoId]="photoInfoId"
+            (onTabSceneCb)="onTabSceneCb($event)">
+</scene-form>
+<div *ngIf="rawInfo.cusRawStatus!=0" class="list-outer">
+
+<div class="scene-outer clearfix" *ngIf="rawInfo.cusRawStatus === 2">
+  <div class="scene-inner clearfix" id="scene-inner">
+    <ul class="scene-list clearfix">
+      <li class="scene-item">
+        <a routerLink="/raw/{{photoInfoId}}" [class.current-scene]="currentStatus===''">原片 ({{sceneFormComponent.totalCount}})</a>
+        <span class="item-split"></span>
+      </li>
+      <li class="scene-item">
+        <a routerLink="/raw/{{photoInfoId}}/1" [class.current-scene]="currentStatus==='1'">已选 ({{sceneFormComponent.checkedNum}})</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="pc-content pc-layout"  id="pc-list-content">
+  <pcphoto
+    [list]="photoList"
+    [type]="'raw'"
+    [status]="currentStatus"
+    [isShowDelete] = "(sceneFormComponent.checkedNum !== rawInfo.truingImgNum || currentStatus === '') && rawInfo.cusRawStatus !== 2"
+    (choose)="onChoose($event)"
+    (preview)="onPcPreview($event)"
+  ></pcphoto>
+</div>
+
+<div class="content layout" [class.content-status]="currentStatus!==''" id="list-content">
+  <div class="flow-list clearfix" >
+    <div class="flow-list-col">
+      <photo
+        [list]="photoCols.col1.list"
+        [type]="'raw'"
+        [status]="currentStatus"
+        [rawStatus]="rawInfo.cusRawStatus"
+        [isShowDelete] = "(sceneFormComponent.checkedNum !== rawInfo.truingImgNum || currentStatus === '')&&rawInfo.cusRawStatus !== 2"
+        (choose)="onChoose($event)"
+        (preview)="onPreview($event)"
+      ></photo>
+    </div>
+    <div class="flow-list-col">
+      <photo
+        [list]="photoCols.col2.list"
+        [type]="'raw'"
+        [status]="currentStatus"
+        [rawStatus]="rawInfo.cusRawStatus"
+        [isShowDelete] = "(sceneFormComponent.checkedNum !== rawInfo.truingImgNum || currentStatus === '')&&rawInfo.cusRawStatus !== 2"
+        (choose)="onChoose($event)"
+        (preview)="onPreview($event)"
+      ></photo>
+    </div>
+  </div>
+</div>
+<div class="none-data" *ngIf="photoList.length==0&&!isLoadingData">没有找到任何数据</div>
+
+<loading *ngIf="isLoadingData"></loading>
+
+<pagination [page]="page" [style]="'loadmore'" [loadingData]="isLoadingData" (loadMore)="getPhotos()"></pagination>
+
+<div class="margin-bottom"></div>
+
+<div class="toolbar" *ngIf="currentStatus==='' && rawInfo.cusRawStatus !== 2">
+  <div class="toolbar-inner layout">
+    <p class="toolbar-text">
+      <span class="icon-ok" *ngIf="sceneFormComponent.checkedNum>=rawInfo.truingImgNum"></span>您已初选{{sceneFormComponent.checkedNum}}张
+      <a href="javascript:;" (click)="onNext()" class="btn-next" [class.btn-next-active]="sceneFormComponent.checkedNum>=rawInfo.truingImgNum">进入精选</a>
+    </p>
+  </div>
+</div>
+
+
+
+<div class="toolbar" *ngIf="currentStatus==='1' && rawInfo.cusRawStatus !==2 ">
+  <div class="toolbar-inner layout">
+    <p class="toolbar-text">
+      <a href="javascript:;" (click)="onBack()" class="btn-back"> < 返回重选</a>
+      <a href="javascript:;" (click)="onFinish()" class="btn-next btn-next-active">确认提交 ( {{sceneFormComponent.checkedNum}} )</a>
+    </p>
+  </div>
+</div>
+
+<div class="toolbar" *ngIf="rawInfo.cusRawStatus ===2 ">
+  <div class="toolbar-inner toolbar-day layout">
+    <p class="wait-day">
+      <span class="icon-day"></span>
+      大约{{rawInfo.period}}天后完成修片
+    </p>
+  </div>
+</div>
+</div>
+
+
+<div class="no-init" *ngIf="rawInfo.cusRawStatus === 0">
+  <img src="../../../images/icon-day-big.png" />
+  <p>等待商家上传原片...</p>
+</div>
+
+<viewer *ngIf="isPreview"
+        [status]="currentStatus"
+        [isShowDelete] = "(sceneFormComponent.checkedNum !== rawInfo.truingImgNum || currentStatus === '') && rawInfo.cusRawStatus !== 2"
+        (close)="onClosePreview()"
+        (choose)="onChoose($event)"
+        (remark)="onRemark($event)"
+        [currentIndex]="previewIndex"
+        [photoList]="photoList"></viewer>
+
+
+<pcviewer  *ngIf="isPcPreview"
+           [status]="currentStatus"
+           [isShowDelete] = "(sceneFormComponent.checkedNum !== rawInfo.truingImgNum || currentStatus === '') && rawInfo.cusRawStatus !== 2"
+           (close)="onClosePcPreview()"
+           (choose)="onChoose($event)"
+           [currentIndex]="previewIndex"
+           [list]="photoList"></pcviewer>
+
+
+
+
+<tip
+  *ngIf="isShowTip"
+  (close)="onCloseTip()"
+  btnText = '我知道了'>
+  您正好选择了<span class="count">{{rawInfo.truingImgNum}}</span>张，请点击网页底部的确认选片进行确认。
+</tip>
+
+
+<success *ngIf="isShowSuccess" (close)="onCloseSuccess()">
+  操作成功
+</success>
+
+<confirm
+  *ngIf="isShowConfirm"
+  [title]="'确认删除?'"
+  [btnConfirm]="'我确认'"
+  [btnCancel]="'再考虑一下'"
+  (confirm)="deleteConfirm($event)"
+  (cancel)="deleteCancel($event)">
+  确认删除选片吗？
+</confirm>
+
+<confirm
+  *ngIf="isShowConfirmFinish"
+  [title]="'确认选片'"
+  [btnConfirm]="'我确认'"
+  [btnCancel]="'再考虑一下'"
+  (confirm)="confirmFinish($event)"
+  (cancel)="cancelFinish($event)">
+  <div class="finish-content">
+    确认选片后无法修改<br/>你确认提交吗？
+  </div>
+</confirm>
+
+<confirm
+  *ngIf="isShowOverChoose"
+  [title]="'确认选片'"
+  [btnConfirm]="'我确认'"
+  [btnCancel]="'再考虑一下'"
+  (confirm)="confirmFinish($event)"
+  (cancel)="cancelOverChoose($event)">
+  <div class="count-content">
+    您已选片{{sceneFormComponent.checkedNum}}张，订单精修片数量为{{rawInfo.truingImgNum}}张
+    <br/>额外费用大约
+    <br><span class="money">￥{{rawInfo.truingPrice * (sceneFormComponent.checkedNum - rawInfo.truingImgNum)}}</span>
+    <br />客服专员会联系您以确认准确费用
+  </div>
+</confirm>
+
+<tip
+  *ngIf="isShowOkTip"
+  (close)="onCloseOkChoose()"
+  btnText = '我知道了'>
+  您正好选择了<span class="count">{{rawInfo.truingImgNum}}</span>张，请点击网页底部的确认选片进行确认。
+</tip>
+
+
+<tip
+  *ngIf="isShowOverTip"
+  (close)="onCloseOkChoose()"
+  btnText = '我知道了'>
+  <div class="over-tip">
+    <p>本订单精修片数量为{{rawInfo.truingImgNum}}张，超出后每张将产生￥{{rawInfo.truingPrice}}额外费用。</p>
+    <p class="over-tip-2">
+    您已经粗选了<span class="count">{{sceneFormComponent.checkedNum}}</span>张照片，请点击<span class="inner-btn">删除</span>去除不需要的照片。
+    </p>
+  </div>
+</tip>
+
+<a href="javascript:;" id="render" class="render" (click)="render($event)">dom</a>
+
+

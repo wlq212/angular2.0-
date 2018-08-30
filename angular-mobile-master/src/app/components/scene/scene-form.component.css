@@ -1,0 +1,67 @@
+.scene-outer{
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+  background-color: #f2f4f4;
+  position: relative;
+  overflow: hidden;
+}
+.scene-list{
+  white-space:nowrap;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.scene-item{
+  display: inline-block;
+  font-size: 15px;
+  position: relative;
+}
+.scene-item a{
+  color: #888888;
+  text-decoration: none;
+  font-size: 16px;
+  height: 45px;
+  line-height: 45px;
+  display: inline-block;
+  padding: 0px 15px;
+}
+
+.item-split{
+  width: 1px;
+  height: 20px;
+  display: block;
+  position: absolute;
+  right: 0px;
+  top: 12px;
+  background-color: #d2d2d2;
+}
+.scene-item a.current-scene{
+  color: #000000;
+}
+
+.scene-inner{
+  max-width: 768px;
+  margin: 0px auto;
+  height: 43px;
+  position: relative;
+}
+
+@media screen and (min-width: 769px) {
+  .scene-outer{
+    background-color: #f0f0f0;
+    border-bottom: none;
+    border-top: none;
+  }
+  .scene-inner{
+    max-width: 1080px;
+    border-bottom: 1px solid #e5e5e5;
+  }
+  .scene-item a{
+    padding-left: 0px;
+    padding-right: 40px;
+    font-sizeP: 14px;
+  }
+  .item-split{
+    display: none;
+  }
+}

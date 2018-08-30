@@ -1,0 +1,140 @@
+.list-outer{
+  height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.title{
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+  border-bottom: 1px solid #E0E0E0;
+  font-weight: normal;
+  color: #909090;
+  background-color: #f2f4f4;
+}
+.title-text{
+  font-size: 16px;
+  position: relative;
+}
+
+.icon-title{
+  position: absolute;
+  left: -18px;
+  top: 2px;
+  background-image: url(../../../../images/icon-order-title.png);
+  background-size: cover;
+  width: 12px;
+  height: 15px;
+}
+
+.order-list{
+  background-color: #f2f4f4;
+}
+
+.order-list .order:first-child{
+  border-top: 0px;
+}
+
+.order{
+  border-top: 1px solid #E0E0E0;
+  border-bottom: 1px solid #E0E0E0;
+  margin-top: 10px;
+  position: relative;
+  background-color: #FFFFFF;
+}
+.items-info{
+  padding: 20px;
+}
+
+.status{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 0px 20px;
+  font-size: 14px;
+  height: 30px;
+  line-height: 30px;
+  color: #FFFFFF;
+  background-color: #59ac94;
+  border-radius: 15px;
+}
+
+.item{
+  height: 35px;
+  line-height: 35px;
+  font-size: 16px;
+}
+
+.item-type{
+  color: #909090;
+}
+
+
+.toolbar{
+  border-top: 1px solid #E0E0E0;
+  padding-top: 10px;
+  left: 0px;
+  bottom: 0px;
+  font-size: 0px;
+  box-sizing: border-box;
+  padding-right: 20px;
+}
+
+.btn-outer{
+  display: inline-block;
+  width: 50%;
+  box-sizing: border-box;
+  padding-left: 20px;
+  padding-bottom: 10px;
+}
+
+.btn-detail{
+  display: inline-block;
+  border: 1px solid #bb9a76;
+  border-radius: 5px;
+  color: #bb9a76;
+  width: 100%;
+  font-size: 14px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+}
+
+.btn-detail:hover{
+  background-color: #efefef;
+}
+li.no-data{
+  background: none;
+  text-align: center;
+  border: none;
+  color: #888;
+  font-size: 1rem;
+  line-height: 3rem;
+  padding-top: 4rem;
+}
+li.no-data i{
+  font-size: 2.6rem;
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-jinggao {
+  position: absolute;
+  text-align: center;
+  background-image: url(../../../../images/icon-jinggao.png);
+  background-size: cover;
+  width: 41px;
+  height: 41px;
+  left: -20px;
+  margin-left: 50%;
+}
+.iconfont{
+  font-size: .8rem;
+}

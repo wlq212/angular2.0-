@@ -1,0 +1,202 @@
+.title{
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+  border-bottom: 1px solid #E0E0E0;
+  font-weight: normal;
+  color: #909090;
+  background-color: #f2f4f4;
+}
+.title-text{
+  font-size: 16px;
+  position: relative;
+}
+
+.icon-title{
+  position: absolute;
+  left: -18px;
+  top: 2px;
+  background-image: url(../../../../images/icon-order-title.png);
+  background-size: cover;
+  width: 12px;
+  height: 15px;
+}
+.box{
+  border-bottom: 1px solid #EEEEEE;
+  padding: 20px;
+  position: relative;
+  background-color: #FFFFFF;
+  font-size: 15px;
+}
+
+.box-title{
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  width: 70px;
+  text-align: right;
+}
+
+.status{
+  position: absolute;
+  top: 20px;
+  right: 6px;
+  padding: 0px 20px;
+  height: 30px;
+  line-height: 30px;
+  color: #FFFFFF;
+  background-color: #59ac94;
+  border-radius: 15px;
+  z-index:9;
+  font-size: 14px;
+}
+
+.form-item{
+  height: 30px;
+  line-height: 30px;
+  position: relative;
+}
+
+.form-key{
+  display: inline-block;
+  width: 70px;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.form-value{
+  color: #909090;
+}
+
+.form-item-group{
+  font-size: 0px;
+}
+
+.form-long-item{
+  color: #909090;
+}
+
+.inner-item{
+  width: 50%;
+  display: inline-block;
+  font-size: 15px;
+}
+
+.form-right-value{
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+
+.order-amount{
+  display: inline-block;
+  width: 50%;
+  font-size: 16px;
+  box-sizing: border-box;
+  /*border-right: 1px solid #CCCCCC;*/
+}
+
+.order-amount span, .order-payed span{
+  color: #909090;
+}
+
+.icon-ok{
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  background-image: url(../../../../images/icon-payed.png);
+  background-size: cover;
+  margin-right: 10px;
+  position: absolute;
+  left: -6px;
+  top: 0px;
+}
+
+.order-payed{
+  display: inline-block;
+  width: 50%;
+  font-size: 16px;
+  text-align: center;
+}
+
+.order-payed-inner{
+  display: inline;
+  position: relative;
+  padding-left: 20px;
+}
+
+.toolbar{
+  text-align: center;
+  font-size: 0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.btn{
+  display: inline-block;
+  height: 50px;
+  line-height: 50px;
+  border: 1px solid #999;
+  width: 97%;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.btn-progress{
+  margin-left: 10px;
+}
+
+.btn-telephone{
+  background-color: #59ac94;
+  color: #FFFFFF;
+  border-color: #59ac94;
+}
+
+.btn-inner{
+  display: inline-block;
+  padding-left: 25px;
+  position: relative;
+}
+
+.icon-customer{
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  background-image: url(../../../../images/icon-customer.png);
+  background-size: cover;
+  position: absolute;
+  top: 15px;
+  left: 0px;
+}
+.back{
+  color: #59ac94;
+  font-size: .8rem;
+  margin-left: .5rem;
+  text-decoration: none;
+  top: 35px;
+  right: 20px;
+  position: fixed;
+  background-color: white;
+}
+.icon-back{
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  background-size: cover;
+  margin-right: 10px;
+  position: absolute;
+  top: -6px;
+  right: -12px;
+  background-image: url(../../../../images/icon-back.png);
+}
+.icon-go{
+  display: inline-block;
+  height: 20px;
+  width: 16px;
+  background-size: cover;
+  margin-right: 10px;
+  position: absolute;
+  top: 5px;
+  right: -9px;
+  background-image: url(../../../../images/icon-go.png);
+}

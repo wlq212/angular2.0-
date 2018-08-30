@@ -1,0 +1,302 @@
+
+.flow-list {
+  padding-right: 15px;
+}
+
+.flow-list-col {
+  float: left;
+  width: 50%;
+}
+
+.loading-data {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.toolbar {
+  background-color: #FFFFFF;
+  height: 50px;
+  line-height: 50px;
+  position: fixed;
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
+  box-shadow: 0px -1px 5px rgba(0, 0, 0, 0.15);
+}
+
+.toolbar-inner {
+  position: relative;
+}
+
+.toolbar-text {
+  padding-left: 50px;
+  font-size: 14px;
+  position: relative;
+}
+
+.icon-wait {
+  background-image: url(../../../images/icon-wait.png);
+  width: 15px;
+  height: 15px;
+  background-size: cover;
+  position: absolute;
+  top: 17px;
+  left: 25px;
+}
+
+.icon-ok {
+  background-image: url(../../../images/icon-ok-black.png);
+  width: 15px;
+  height: 14px;
+  background-size: cover;
+  position: absolute;
+  top: 17px;
+  left: 25px;
+}
+
+.btn-next {
+  position: absolute;
+  height: 50px;
+  line-height: 50px;
+  color: #FFFFFF;
+  background-color: #929292;
+  top: 0px;
+  right: 0px;
+  padding: 0px 30px;
+  font-size: 18px;
+}
+
+.btn-next-active {
+  background-color: #59ac94;
+}
+
+.scene-outer {
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+  background-color: #f2f4f4;
+}
+
+.scene-inner {
+  max-width: 768px;
+  margin: 0px auto;
+  height: 43px;
+  position: relative;
+}
+
+.scene-list {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.scene-item {
+  display: inline-block;
+  font-size: 15px;
+  position: relative;
+}
+
+.scene-item a {
+  color: #888888;
+  text-decoration: none;
+  font-size: 14px;
+  height: 45px;
+  line-height: 45px;
+  display: inline-block;
+  padding: 0px 14px;
+}
+
+.item-split {
+  width: 1px;
+  height: 20px;
+  display: block;
+  position: absolute;
+  right: 0px;
+  top: 12px;
+  background-color: #d2d2d2;
+}
+
+.scene-item a.current-scene {
+  color: #000000;
+}
+
+.pc-guide {
+  background-color: #ffb892;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  color: #FFFFFF;
+  font-size: 16px;
+  margin-top: 10px;
+  border-radius: 2px;
+}
+
+.btn-close-guide {
+  margin-left: 50px;
+  text-decoration: underline;
+  color: #FFFFFF;
+}
+
+@media screen and (min-width: 769px) {
+  .scene-outer {
+    background-color: #f0f0f0;
+    border-bottom: none;
+    border-top: none;
+  }
+
+  .scene-inner {
+    max-width: 1080px;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  .scene-item a {
+    padding-left: 0px;
+    padding-right: 40px;
+    font-sizeP: 14px;
+  }
+
+  .item-split {
+    display: none;
+  }
+
+  .content {
+    display: none;
+  }
+
+  .margin-bottom {
+    margin-bottom: 70px;
+    height: 1px;
+  }
+
+  .toolbar {
+    background-color: #5a5a5a;
+    color: #FFFFFF;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+  }
+
+  .toolbar-text {
+    font-size: 16px;
+    display: inline-block;
+    position: relative;
+    padding-left: 0px;
+  }
+
+  .icon-wait {
+    display: none;
+  }
+
+  .btn-next {
+    position: absolute;
+    right: -130px;
+    top: 18px;
+    border-radius: 3px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 16px;
+    padding: 0px 20px;
+  }
+
+  .icon-ok {
+    position: absolute;
+    left: -20px;
+    top: 30px;
+  }
+
+  .toolbar-wait .icon-ok {
+    top: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .pc-content {
+    display: none;
+  }
+
+  .list-outer{
+    height: 100%;
+  }
+
+  .content {
+    padding-top: 15px;
+    height: calc(100% - 30px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 20px;
+    box-sizing: border-box;
+  }
+
+  .margin-bottom {
+    margin-bottom: 60px;
+  }
+
+  .pc-guide {
+    display: none;
+  }
+}
+
+.no-init {
+  padding-top: 100px;
+  text-align: center;
+  line-height: 35px;
+  font-size: 20px;
+}
+
+.no-init img {
+  display: inline-block;
+  width: 80px;
+  margin-bottom: 20px;
+}
+
+.toolbar-wait {
+  background-color: #59ac94;
+  color: #FFFFFF;
+  padding-left: 35px;
+}
+
+.toolbar-wait .icon-ok {
+  left: -20px;
+  background-image: url(../../../images/icon-ok-white.png);
+}
+
+.scene-finish {
+  width: 100%;
+  text-align: center;
+}
+
+.wait-text {
+  position: relative;
+  display: inline-block;
+}
+
+.render {
+  display: none;
+}
+
+.back {
+  color: #59ac94;
+  font-size: .8rem;
+  margin-left: .5rem;
+  text-decoration: none;
+  top: 35px;
+  right: 20px;
+  position: fixed;
+  background-color: white;
+}
+
+.icon-back {
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  background-size: cover;
+  margin-right: 10px;
+  position: absolute;
+  top: -6px;
+  right: -12px;
+  background-image: url(../../../images/icon-back.png);
+}
+
+@media screen and (min-width: 769px) {
+  .icon-back {
+    display: none;
+  }
+}
